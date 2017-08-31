@@ -68,12 +68,14 @@ Git提供了一个`stash`功能，可以把当前工作现场“储藏”起来�
 ### 多人协作　
 当你从远程仓库克隆时，实际上Git自动把本地的`master`分支和远程的`master`分支对应起来了，并且，远程仓库的默认名称是`origin`。
 要查看远程库的信息，用`git remote`,或者，用`git remote -v`显示更详细的信息;  
+
 多人协作的工作模式通常是这样：
     * 首先，可以试图用`git push origin branch-name`推送自己的修改
     * 如果推送失败，则因为远程分支比你的本地更新，需要先用`git pull`试图合并；
     * 如果合并有冲突，则解决冲突，并在本地提交；
     * 没有冲突或者解决掉冲突后，再用`git push origin branch-name`推送就能成功！
     * 如果`git pull`提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream branch-name origin/branch-name`。
+
 小结：
   * 查看远程库信息，使用`git remote -v`；
   * 本地新建的分支如果不推送到远程，对其他人就是不可见的；
