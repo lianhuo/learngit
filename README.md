@@ -83,3 +83,16 @@ Git提供了一个`stash`功能，可以把当前工作现场“储藏”起来�
   * 在本地创建和远程分支对应的分支，使用`git checkout -b branch-name origin/branch-name`，本地和远程分支的名称最好一致；
   * 建立本地分支和远程分支的关联，使用`git branch --set-upstream branch-name origin/branch-name`；
   * 从远程抓取分支，使用`git pull`，如果有冲突，要先处理冲突。
+
+### 创建标签
+　在Git中打标签非常简单，首先，切换到需要打标签的分支上然后，敲命令`git tag <name>`就可以打一个新标签,可以用命令`git tag`查看所有标签,可以用`git show <tagname>`查看标签信息。还可以创建带有说明的标签，用`-a`指定标签名，`-m`指定说明文字
+ * 命令`git tag <name>`用于新建一个标签，默认为`HEAD`，也可以指定一个`commit id`；
+ * `git tag -a <tagname> -m "blablabla..."`可以指定标签信息；
+ * `git tag -s <tagname> -m "blablabla..."`可以用PGP签名标签；
+ * 命令`git tag`可以查看所有标签
+
+### 操作标签
+  * 命令`git push origin <tagname>`可以推送一个本地标签；
+  * 命令`git push origin --tags`可以推送全部未推送过的本地标签；
+  * 命令`git tag -d <tagname>`可以删除一个本地标签；
+  * 命令`git push origin :refs/tags/<tagname>`可以删除一个远程标签。
